@@ -7,6 +7,20 @@
       "dependencies": {},
       "hash": "4df417e56ad827cd7e70a54662f0e8bab90aafe9"
     },
+    "com.unity.addressables": {
+      "version": "1.21.20",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.assetbundle": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.scriptablebuildpipeline": "1.21.22",
+        "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.burst": {
       "version": "1.8.18",
       "depth": 1,
@@ -83,6 +97,13 @@
         "com.unity.render-pipelines.core": "12.1.15",
         "com.unity.shadergraph": "12.1.15"
       }
+    },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "1.21.22",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
     },
     "com.unity.searcher": {
       "version": "4.9.1",
