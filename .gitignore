@@ -77,3 +77,8 @@ AssetStoreTools.meta
 /UserSettings
 
 /HybridCLRData
+
+/HybridCLR_BurstDebugInformation_DoNotShip
+
+/Assets/HybridCLRGenerate
+/Assets/HybridCLRGenerate.meta
