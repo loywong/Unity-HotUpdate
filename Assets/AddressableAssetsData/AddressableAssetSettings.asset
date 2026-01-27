@@ -17,16 +17,16 @@ MonoBehaviour:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
-  m_BundleLocalCatalog: 0
-  m_CatalogRequestsTimeout: 0
-  m_DisableCatalogUpdateOnStart: 0
+  m_BuildRemoteCatalog: 1
+  m_BundleLocalCatalog: 1
+  m_CatalogRequestsTimeout: 20
+  m_DisableCatalogUpdateOnStart: 1
   m_IgnoreUnsupportedFilesInBuild: 0
   m_UniqueBundleIds: 0
-  m_NonRecursiveBuilding: 1
+  m_NonRecursiveBuilding: 0
   m_CCDEnabled: 0
-  m_maxConcurrentWebRequests: 3
-  m_ContiguousBundles: 1
+  m_maxConcurrentWebRequests: 2
+  m_ContiguousBundles: 0
   m_StripUnityVersionFromBundleBuild: 0
   m_DisableVisibleSubAssetRepresentations: 0
   m_ShaderBundleNaming: 0
@@ -35,17 +35,19 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 681041f39998a5f4388fe65204f5e614
   m_RemoteCatalogLoadPath:
-    m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+    m_Id: c69ff1cd7f41bd0448eef4d1f446f369
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
-  m_BuildAddressablesWithPlayerBuild: 0
+  m_BuildAddressablesWithPlayerBuild: 2
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 885ba58a574137d42a78c49b2d13c138, type: 2}
   - {fileID: 11400000, guid: 87572b5b4402dc94ca5d8c34888c33da, type: 2}
+  - {fileID: 11400000, guid: 8ffd12bba19b4ab4191b9c563776cc03, type: 2}
+  - {fileID: 11400000, guid: 618201640b85ed94492e1ae92c036859, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -66,7 +68,7 @@ MonoBehaviour:
       - m_Id: 9528100f75083fc4e920dceb9042d588
         m_Value: ServerData/[BuildTarget]
       - m_Id: 9e88be4acd2a15c4db181fb864f9ca4d
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: https://sweechrun-test.oss-cn-shanghai.aliyuncs.com/ScrHotUpdate/ServerData/Android
     m_ProfileEntryNames:
     - m_Id: 6ebe41acc8ac24346b5a2409f70492e6
       m_Name: BuildTarget
