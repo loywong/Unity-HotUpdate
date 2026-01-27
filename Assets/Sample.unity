@@ -133,6 +133,9 @@ GameObject:
   - component: {fileID: 77225352}
   - component: {fileID: 77225353}
   - component: {fileID: 77225354}
+  - component: {fileID: 77225355}
+  - component: {fileID: 77225356}
+  - component: {fileID: 77225357}
   m_Layer: 0
   m_Name: Entry
   m_TagString: Untagged
@@ -178,6 +181,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cecf687c49a83e840ae01986210bc547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &77225355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77225351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80acb4ec60ed4d42b28def4469e1cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &77225356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77225351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c68d6f90ac6b04ea93856edd0df7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outputText: {fileID: 0}
+  updateText: {fileID: 0}
+  assetName_Local: 
+  assetName_Romote: 
+  BtnInitUpdateInfo: {fileID: 0}
+  BtnHotUpdate: {fileID: 0}
+  BtnTestLoadLocal: {fileID: 0}
+  BtnTestLoadRemote: {fileID: 0}
+  BtnClearCacheFiles: {fileID: 0}
+--- !u!114 &77225357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77225351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626515a5cd0c71648be46106959dd304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &330585543
