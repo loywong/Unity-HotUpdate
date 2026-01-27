@@ -201,7 +201,7 @@ public class AssetManager : SingletonSimple<AssetManager> {
         }
     }
 
-    #if UNITY_EDITOR
+    // #if UNITY_EDITOR
     public void DeleteDownloadedRemoteAssets () {
         string cachePath = Caching.currentCacheForWriting.path;
         Debug.Log ("Bundles缓存路径: " + cachePath);
@@ -214,7 +214,7 @@ public class AssetManager : SingletonSimple<AssetManager> {
             Debug.Log($"Bundles Caches目录 不存在 {cachePath}");
         }
     }
-    #endif
+    // #endif
 
     
     // public void CompleteHotUpdate (bool isCompleteSuccOrFail) {
