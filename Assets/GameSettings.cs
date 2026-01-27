@@ -9,7 +9,7 @@ public class GameSettings : MonoBehaviour {
         _instance = this;
     }
 
-#if UNITY_EDITOR
+// #if UNITY_EDITOR
     [Button]
     public void ClearAssetUpdate_FlagAndCatalog () {
         Debug.LogError ("ClearAssetUpdate_FlagAndCatalog");
@@ -23,5 +23,5 @@ public class GameSettings : MonoBehaviour {
         // C:\Users\XuHangHai\AppData\LocalLow\Unity\Sweech International Limited_Sweech Run
         AssetManager.Self.DeleteDownloadedRemoteAssets ();
     }
-#endif
+// #endif
 }
