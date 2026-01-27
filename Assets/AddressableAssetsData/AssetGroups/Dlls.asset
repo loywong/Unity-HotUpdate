@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 531ed85b4b823d3489d650c2799de9d2
   m_SerializeEntries:
-  - m_GUID: 4bf5bbc8ded8b5549bbc6086a32c8103
-    m_Address: HotUpdate_Battle.dll
+  - m_GUID: 4e52843e3ceb9c248ade8e6ab98e9f78
+    m_Address: HotUpdate_ViewScript.dll
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
