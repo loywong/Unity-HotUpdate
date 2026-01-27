@@ -83,7 +83,7 @@ AssetStoreTools.meta
 /Assets/HybridCLRGenerate
 /Assets/HybridCLRGenerate.meta
 
-/Assets/AddressableAssetsData
+# /Assets/AddressableAssetsData
 /RemoteAssets
 /ServerData
 
