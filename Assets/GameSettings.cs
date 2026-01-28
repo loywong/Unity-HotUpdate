@@ -1,3 +1,4 @@
+using LowoUN.Module.Asset;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class GameSettings : MonoBehaviour {
     [Button]
     public void ClearAssetUpdate_DownloadedRemoteAssets () {
         Debug.LogError ("ClearAssetUpdate_DownloadedRemoteAssets");
-        // C:\Users\XuHangHai\AppData\LocalLow\Unity\Sweech International Limited_Sweech Run
+        // C:\Users\XXX\AppData\LocalLow\Unity\XXX
         AssetManager.Self.DeleteDownloadedRemoteAssets ();
     }
 // #endif

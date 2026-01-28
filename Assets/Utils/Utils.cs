@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 
-public class Utils : SingletonSimple<Utils> {
-    public string GetPlatform () {
-        string platform = Application.platform.ToString ();
+namespace LowoUN.Util {
+    public class Utils : SingletonSimple<Utils> {
+        public string GetPlatform () {
+            string platform = Application.platform.ToString ();
 #if UNITY_ANDROID
-        platform = "Android";
+            platform = "Android";
 #elif UNITY_IOS
-        platform = "iOS";
+            platform = "iOS";
 #elif UNITY_WEBGL
-        platform = "WebGL";
+            platform = "WebGL";
 #elif UNITY_STANDALONE_OSX
-        platform = "StandaloneOSX";
+            platform = "StandaloneOSX";
 #endif
-        return platform;
+            return platform;
+        }
     }
 }

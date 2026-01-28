@@ -5,16 +5,17 @@ using UnityEngine;
 public class ConsoleToScreen : MonoBehaviour {
     const int maxLines = 50;
     const int maxLineLength = 120;
-    private string _logStr = "";
+    string _logStr = "";
 
-    private readonly List<string> _lines = new List<string> ();
+    readonly List<string> _lines = new List<string> ();
 
-    public int fontSize = 15;
+    [SerializeField]
+    int fontSize = 15;
 
     void OnEnable () { Application.logMessageReceived += Log; }
     void OnDisable () { Application.logMessageReceived -= Log; }
 
-    public void Log (string logString, string stackTrace, LogType type) {
+    void Log (string logString, string stackTrace, LogType type) {
         foreach (var line in logString.Split ('\n')) {
             if (line.Length <= maxLineLength) {
                 _lines.Add (line);
