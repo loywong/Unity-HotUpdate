@@ -132,7 +132,6 @@ GameObject:
   m_Component:
   - component: {fileID: 77225352}
   - component: {fileID: 77225353}
-  - component: {fileID: 77225354}
   - component: {fileID: 77225355}
   - component: {fileID: 77225356}
   - component: {fileID: 77225357}
@@ -171,18 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fontSize: 15
---- !u!114 &77225354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77225351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cecf687c49a83e840ae01986210bc547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &77225355
 MonoBehaviour:
   m_ObjectHideFlags: 0

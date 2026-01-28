@@ -25,7 +25,6 @@ public class AssetRemoteUpdater : MonoBehaviour {
     public Button BtnTestLoadRemote;
     public Button BtnClearCacheFiles;
 
-    
     void Awake () {
         if (Instance == null)
             Instance = this;
@@ -45,36 +44,36 @@ public class AssetRemoteUpdater : MonoBehaviour {
         // {
         //     Debug.Log("可用缓存路径: " + cache);
         // }
-        if(BtnInitUpdateInfo!=null) {
+        if (BtnInitUpdateInfo != null) {
             BtnInitUpdateInfo.onClick.AddListener (() => {
                 Debug.Log ("点击获取资源更新信息");
                 HotUpdateRemoteAssets ();
             });
         }
 
-        if(BtnHotUpdate!=null) {
+        if (BtnHotUpdate != null) {
             BtnHotUpdate.onClick.AddListener (() => {
                 Debug.Log ("点击资源更新按钮");
                 // HotUpdateRemoteAssets ();
-                DownLoad();
+                DownLoad ();
             });
         }
 
-        if(BtnTestLoadLocal!=null) {
+        if (BtnTestLoadLocal != null) {
             BtnTestLoadLocal.onClick.AddListener (() => {
                 Debug.Log ("点击加载本地资源按钮");
                 LoadGo_Local ();
             });
         }
 
-        if(BtnTestLoadRemote!=null) {
+        if (BtnTestLoadRemote != null) {
             BtnTestLoadRemote.onClick.AddListener (() => {
                 Debug.Log ("点击加载远程资源按钮");
                 LoadGo ();
             });
         }
 
-        if(BtnClearCacheFiles!=null) {
+        if (BtnClearCacheFiles != null) {
             BtnClearCacheFiles.onClick.AddListener (() => {
                 Debug.Log ("点击清理资源缓存按钮");
                 // StartCoroutine(ClearAllAssetCoro());
@@ -94,32 +93,13 @@ public class AssetRemoteUpdater : MonoBehaviour {
         if (_updateKeys == null) _updateKeys = new List<object> ();
         else _updateKeys.Clear ();
 
-        UpdateCatalog (()=>{
+        UpdateCatalog (() => {
             // InitUpdateInfoComplete(cb_Result);
-            bool isNeedUpdate = _updateKeys.IsValid();
-            Debug.Log($"====== 热更流程 -- 完成 获取更新信息, 需要更新吗:{isNeedUpdate}");
-            cb_Result?.Invoke(isNeedUpdate);
+            bool isNeedUpdate = _updateKeys.IsValid ();
+            Debug.Log ($"====== 热更流程 -- 完成 获取更新信息, 需要更新吗:{isNeedUpdate}");
+            cb_Result?.Invoke (isNeedUpdate);
         });
     }
-
-    // void InitUpdateInfoComplete (Action<bool> cb_Result) {
-    //     bool isNeedUpdate = _updateKeys.IsValid();
-    //     Debug.Log($"完成 获取更新信息, 需要更新吗:{isNeedUpdate}");
-    //     // if(_updateKeys.IsValid())
-    //     //     DownLoad();
-    //     cb_Result.Invoke(isNeedUpdate);
-    // }
-
-    // IEnumerator ClearAllAssetCoro()
-    // {
-    //     foreach (var locats in Addressables.ResourceLocators)
-    //     {
-    //         var async = Addressables.ClearDependencyCacheAsync(locats.Keys, false);
-    //         yield return async;
-    //         Addressables.Release(async);
-    //     }
-    //     Caching.ClearCache();
-    // }
 
     async void LoadGo_Local () {
         GameObject gameObject = await LoadAsset<GameObject> (assetName_Local).Task;
@@ -173,14 +153,14 @@ public class AssetRemoteUpdater : MonoBehaviour {
                 }
                 // Debug.Log ("download catalog start ");
                 // outputText.text = str;
-                ShowLog(str += "download catalog start \n");
+                ShowLog (str += "download catalog start \n");
                 var updateHandle = Addressables.UpdateCatalogs (catalogs, false);
                 await updateHandle.Task;
                 foreach (var item in updateHandle.Result) {
                     ShowLog ("catalog result " + item.LocatorId);
                     foreach (var key in item.Keys) {
                         // Debug.Log ("catalog key " + key);
-                        ShowLog("catalog key " + key);
+                        ShowLog ("catalog key " + key);
                     }
                     _updateKeys.AddRange (item.Keys);
                 }
@@ -193,7 +173,7 @@ public class AssetRemoteUpdater : MonoBehaviour {
         }
 
         Addressables.Release (handle);
-        cb_complte.Invoke();
+        cb_complte.Invoke ();
     }
     /// <summary>
     /// 主界面显示Log
@@ -208,6 +188,7 @@ public class AssetRemoteUpdater : MonoBehaviour {
             outputText.text = str;
         }
     }
+
     [System.Diagnostics.Conditional ("PROJECT_LOG")]
     private void ShowProgressInfo (string textStr) {
         Debug.Log (textStr);
@@ -217,15 +198,15 @@ public class AssetRemoteUpdater : MonoBehaviour {
     }
 
     Action<long> cb_GetTotalSize;
-    public void GetTotalSize(Action<long> cb_GetTotalSize) {
+    public void GetTotalSize (Action<long> cb_GetTotalSize) {
         this.cb_GetTotalSize = cb_GetTotalSize;
-        StartCoroutine(GetTotalSizeReal());
+        StartCoroutine (GetTotalSizeReal ());
     }
-    IEnumerator GetTotalSizeReal() {
+    IEnumerator GetTotalSizeReal () {
         var downloadsize = Addressables.GetDownloadSizeAsync (_updateKeys);
         yield return downloadsize;
         ShowLog ("start download size :" + downloadsize.Result);
-        cb_GetTotalSize?.Invoke(downloadsize.Result);
+        cb_GetTotalSize?.Invoke (downloadsize.Result);
     }
 
     AsyncOperationHandle<long> downloadSizeHandler;
@@ -235,7 +216,7 @@ public class AssetRemoteUpdater : MonoBehaviour {
         // TODO loywong 应该有方法知道中间有文件下载失败，后续进行再次下载的操作，可以设置最多重复下载的次数，达到次数上限，则提示需要修复客户端
         bool hasAllSucc = true;
 
-        if(downloadSizeHandler.IsValid()) Addressables.Release (downloadSizeHandler);
+        if (downloadSizeHandler.IsValid ()) Addressables.Release (downloadSizeHandler);
         downloadSizeHandler = Addressables.GetDownloadSizeAsync (_updateKeys);
         yield return downloadSizeHandler;
 
@@ -243,7 +224,7 @@ public class AssetRemoteUpdater : MonoBehaviour {
         // Debug.LogError($"downloadsize.Result:{downloadsize.Result}");
         float progress = 0;
         if (downloadSizeHandler.Result > 0) {
-            if(downloadHandler.IsValid()) Addressables.Release (downloadHandler);
+            if (downloadHandler.IsValid ()) Addressables.Release (downloadHandler);
             downloadHandler = Addressables.DownloadDependenciesAsync (_updateKeys, Addressables.MergeMode.Union); //, Addressables.MergeMode.Union
             // var download = Addressables.DownloadDependenciesAsync(_updateKeys, Addressables.MergeMode.None);
             // var download = Addressables.DownloadDependenciesAsync(_updateKeys, true);
@@ -266,13 +247,13 @@ public class AssetRemoteUpdater : MonoBehaviour {
             //     }
             // }
 
-            while (downloadHandler.Status == AsyncOperationStatus.None) {//&&!AssetManager.Self.isGoQuit
+            while (downloadHandler.Status == AsyncOperationStatus.None) { //&&!AssetManager.Self.isGoQuit
                 float percentageComplete = downloadHandler.GetDownloadStatus ().Percent;
                 if (percentageComplete > progress * 1.1) // Report at most every 10% or so
                 {
                     // Case 1 v
                     progress = percentageComplete; // More accurate %
-                    Debug.Log($"已下载:{progress}");
+                    Debug.Log ($"已下载:{progress}");
                     // if(GameSettings._instance.isDownloading_ProcessShow) {
                     //     #if UNITY_EDITOR
                     //     Debug.Log($"已下载:{progress}");
@@ -317,40 +298,40 @@ public class AssetRemoteUpdater : MonoBehaviour {
         Addressables.Release (downloadSizeHandler);
     }
 
-    public void BreakDownloadWhenQuitApplication() {
-        if (cor_DownLoad != null) { StopCoroutine(cor_DownLoad); cor_DownLoad = null;}
+    public void BreakDownloadWhenQuitApplication () {
+        if (cor_DownLoad != null) { StopCoroutine (cor_DownLoad); cor_DownLoad = null; }
 
-        if(downloadHandler.IsValid()) {
-            Debug.Log("Addressables.Release (downloadHandler)");
+        if (downloadHandler.IsValid ()) {
+            Debug.Log ("Addressables.Release (downloadHandler)");
             Addressables.Release (downloadHandler);
         }
-        if(downloadSizeHandler.IsValid()) {
-            Debug.Log("Addressables.Release (downloadSizeHandler)");
+        if (downloadSizeHandler.IsValid ()) {
+            Debug.Log ("Addressables.Release (downloadSizeHandler)");
             Addressables.Release (downloadSizeHandler);
         }
 
         // 兜底释放所有操作（可选）
-        Addressables.ResourceManager.Dispose();
+        Addressables.ResourceManager.Dispose ();
 
         // TODO 终止网络层（可选）
         // 在需要时手动终止所有下载
-        UnityWebRequest.ClearCookieCache();
+        UnityWebRequest.ClearCookieCache ();
         // UnityWebRequest.DisposeHandlers();
     }
 
     /// <summary>
     /// 下载资源
     /// </summary>
-    Coroutine cor_DownLoad; 
+    Coroutine cor_DownLoad;
     public bool DownLoad () {
-        if(_updateKeys.IsNotValid()) {
-            Debug.Log($"====== 热更流程 -- 对比结果为: 不需要热更, 或者未正确获取更新信息");
+        if (_updateKeys.IsNotValid ()) {
+            Debug.Log ($"====== 热更流程 -- 对比结果为: 不需要热更, 或者未正确获取更新信息");
             return false;
         }
 
         str = "";
 
-        if (cor_DownLoad != null) { StopCoroutine(cor_DownLoad); }
+        if (cor_DownLoad != null) { StopCoroutine (cor_DownLoad); }
         cor_DownLoad = StartCoroutine (DownAssetImpl ());
 
         return true;

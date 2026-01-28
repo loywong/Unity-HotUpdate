@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pair<T, U>
-{
+public class Pair<T, U> {
     public T First { get; }
     public U Second { get; }
 
-    public Pair(T first, U second)
-    {
+    public Pair (T first, U second) {
         First = first;
         Second = second;
     }
 }
 
-// namespace EasyCharacterMovement {
 public static class Extensions {
     /// <summary>
     /// Return the square of the given value.
@@ -196,7 +193,7 @@ public static class Extensions {
         return rb;
     }
     public static Rigidbody Disable (this Rigidbody rb) {
-        rb.isKinematic = true;// 取消 外力和重力的影响  
+        rb.isKinematic = true; // 取消 外力和重力的影响  
         // rb.detectCollisions = false;
         return rb;
     }
@@ -258,14 +255,14 @@ public static class Extensions {
 
         return quaternion;
     }
-	
-	// MonoBehaviour类型的对象 的完全安全形态
+
+    // MonoBehaviour类型的对象 的完全安全形态
     public static bool IsMonoValid (this MonoBehaviour monoObj) {
-        return monoObj!=null&&monoObj.gameObject!=null;
+        return monoObj != null && monoObj.gameObject != null;
     }
-	// MonoBehaviour类型的对象完全安全，且处于可视状态，才执行的逻辑（战斗中多为此类情况）
+    // MonoBehaviour类型的对象完全安全，且处于可视状态，才执行的逻辑（战斗中多为此类情况）
     public static bool IsValid (this MonoBehaviour monoObj) {
-        return monoObj!=null&&monoObj.gameObject!=null&&monoObj.gameObject.activeInHierarchy;
+        return monoObj != null && monoObj.gameObject != null && monoObj.gameObject.activeInHierarchy;
     }
     // public static bool IsValid_Unit (this AUnit u) {
     //     // MARK 注意，如果隐藏掉 只有一种可能，就是被对象池回收，否则没有操作可以隐藏该对象，不渲染时通过关掉渲染器来实现!!!
@@ -273,10 +270,10 @@ public static class Extensions {
     //     return u!=null&&!u.IsDead&&u.gameObject!=null&&u.gameObject.activeInHierarchy;
     // }
     public static bool IsNotValid (this string str) {
-        return string.IsNullOrEmpty(str);
+        return string.IsNullOrEmpty (str);
     }
     public static bool IsValid (this string str) {
-        return !string.IsNullOrEmpty(str);
+        return !string.IsNullOrEmpty (str);
     }
     public static bool IsValid<T> (this List<T> lst) {
         return lst != null && lst.Count > 0;
@@ -292,23 +289,19 @@ public static class Extensions {
     public static bool IsValid<T, K> (this Dictionary<T, K> dict) {
         return dict != null && dict.Count > 0;
     }
-    public static void AddRange<TKey, TValue>(this Dictionary<TKey, TValue> target, Dictionary<TKey, TValue> source) {
+    public static void AddRange<TKey, TValue> (this Dictionary<TKey, TValue> target, Dictionary<TKey, TValue> source) {
         foreach (var kvp in source) {
             target[kvp.Key] = kvp.Value;
         }
     }
-    public static bool ApproximatelyEqual(this Vector3 a, Vector3 b, float tolerance = 0.001f)
-    {
+    public static bool ApproximatelyEqual (this Vector3 a, Vector3 b, float tolerance = 0.001f) {
         return (a - b).sqrMagnitude < tolerance * tolerance;
     }
-    public static bool ApproximatelyEqual_V2(this Vector2 a, Vector2 b, float tolerance = 0.001f)
-    {
+    public static bool ApproximatelyEqual_V2 (this Vector2 a, Vector2 b, float tolerance = 0.001f) {
         return (a - b).sqrMagnitude < tolerance * tolerance;
     }
 
-    public static bool ApproximatelyEqual(this float a, float b, float tolerance = 0.001f)
-    {
-        return Math.Abs(a - b) < tolerance;
+    public static bool ApproximatelyEqual (this float a, float b, float tolerance = 0.001f) {
+        return Math.Abs (a - b) < tolerance;
     }
 }
-// }
